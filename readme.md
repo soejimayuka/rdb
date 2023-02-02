@@ -13,3 +13,5 @@
 - カテゴリーを結合して表示させるところ（何度も使うテーブル名には、相関名を付けると便利らしいのでやってみた）
 
 ## イメージ図
+<img width="799" alt="rdb01" src="https://user-images.githubusercontent.com/82001028/216267702-6930ad71-5448-4930-81c7-f7cd48654d8c.png">
+<img width="1038" alt="rdb02" src="https://user-images.githubusercontent.com/82001028/216267743-e56c1b90-302e-4f1e-afe6-f6c46e4fb7c0.png">

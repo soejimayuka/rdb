@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>台湾の基本情報 | 近くて 遠い国、台湾</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+
+    <link rel="icon" type="img/png" href="../img/favicon.png" />
+    <link rel="stylesheet" href="../css/common.css" />
+
+    <script>
+      (function (d) {
+        var config = {
+            kitId: "srv2rrs",
+            scriptTimeout: 3000,
+            async: true,
+          },
+          h = d.documentElement,
+          t = setTimeout(function () {
+            h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
+          }, config.scriptTimeout),
+          tk = d.createElement("script"),
+          f = false,
+          s = d.getElementsByTagName("script")[0],
+          a;
+        h.className += " wf-loading";
+        tk.src = "https://use.typekit.net/" + config.kitId + ".js";
+        tk.async = true;
+        tk.onload = tk.onreadystatechange = function () {
+          a = this.readyState;
+          if (f || (a && a != "complete" && a != "loaded")) return;
+          f = true;
+          clearTimeout(t);
+          try {
+            Typekit.load(config);
+          } catch (e) {}
+        };
+        s.parentNode.insertBefore(tk, s);
+      })(document);
+    </script>
+    <script src="../js/app.js" defer></script>
+    <script src="../js/weather.js" defer></script>
+  </head>
+  <header>
+    <nav class="p-header__nav">
+      <h2 class="screen-reader-text">サイト内メニュー</h2>
+      <button type="button" class="js-drawer" aria-controls="globalNav" aria-expanded="false">
+        <span class="p-hamburger__line">
+          <span class="screen-reader-text">メニューを開閉</span>
+        </span>
+      </button>
+      <ul id="globalNav" class="drawer u-upper">
+        <li><a href="../index.html">トップページ</a></li>
+        <li><a href="../index.html#taiwan">台湾とは</a></li>
+        <li><a href="../index.html#area">エリア紹介</a></li>
+        <li><a href="../food/index.html">台湾グルメ</a></li>
+        <li><a href="../index.html#access">アクセス</a></li>
+      </ul>
+    </nav>
+  </header>
+  <body>
+    <section class="l-section -secondary">
+      <div class="d-container">
+        <h2 class="c-heading -force">台湾の基本情報<span class="-caption">Information</span></h2>
+        <div class="l-output">
+          <ul id="output"></ul>
+        </div>
+      </div>
+    </section>
+    <section class="l-section -secondary">
+      <h2 class="c-heading -secondary">台湾の天気<span class="-caption">Weather</span></h2>
+      <div class="d-container">
+        <div class="l-weather__bg">
+          <div id="js-currentWeatherIcon" class="p-currentWeatherIcon"></div>
+          <div class="l-currentTemp__wrapper">
+            <p id="js-currentTempMin" class="-inline"></p>
+            <p class="p-tempDelimiter -inline">|</p>
+            <p id="js-currentTempMax" class="-inline"></p>
+          </div>
+          <ul class="l-sun__wrapper">
+            <li class="l-sun__box">
+              <p class="p-sunrise">sunrise</p>
+              <p id="js-sunrise" class="p-sunriseTime"></p>
+            </li>
+            <li class="l-sun__box">
+              <p class="p-sunset">sunset</p>
+              <p id="js-sunset" class="p-sunsetTime"></p>
+            </li>
+          </ul>
+
+          <ul class="l-weather__wrapper">
+            <li class="l-weather__box">
+              <div id="secondday" class="l-box p-weatherDate"></div>
+              <div id="js-secondWeatherIcon" class="p-WeatherIcon"></div>
+              <div class="p-weekTemp">
+                <p id="js-secondTempMin" class="-inline"></p>
+                <p class="p-tempDelimiter -inline">|</p>
+                <p id="js-secondTempMax" class="-inline"></p>
+              </div>
+            </li>
+            <li class="l-weather__box">
+              <div id="thirdday" class="l-box p-weatherDate"></div>
+              <div id="js-thirdWeatherIcon" class="p-WeatherIcon"></div>
+              <div class="p-weekTemp">
+                <p id="js-thirdTempMin" class="-inline"></p>
+                <p class="p-tempDelimiter -inline">|</p>
+                <p id="js-thirdTempMax" class="-inline"></p>
+              </div>
+            </li>
+            <li class="l-weather__box">
+              <div id="fourthdday" class="l-box p-weatherDate"></div>
+              <div id="js-fourthWeatherIcon" class="p-WeatherIcon"></div>
+              <div class="p-weekTemp">
+                <p id="js-fourthTempMin" class="-inline"></p>
+                <p class="p-tempDelimiter -inline">|</p>
+                <p id="js-fourthTempMax" class="-inline"></p>
+              </div>
+            </li>
+            <li class="l-weather__box">
+              <div id="fifthdday" class="l-box p-weatherDate"></div>
+              <div id="js-fifthWeatherIcon" class="p-WeatherIcon"></div>
+              <div class="p-weekTemp">
+                <p id="js-fifthTempMin" class="-inline"></p>
+                <p class="p-tempDelimiter -inline">|</p>
+                <p id="js-fifthTempMax" class="-inline"></p>
+              </div>
+            </li>
+            <li class="l-weather__box">
+              <div id="sixthdday" class="l-box p-weatherDate"></div>
+              <div id="js-sixthWeatherIcon" class="p-WeatherIcon"></div>
+              <div class="p-weekTemp">
+                <p id="js-sixthTempMin" class="-inline"></p>
+                <p class="p-tempDelimiter -inline">|</p>
+                <p id="js-sixthTempMax" class="-inline"></p>
+              </div>
+            </li>
+            <li class="l-weather__box">
+              <div id="seventhdday" class="l-box p-weatherDate"></div>
+              <div id="js-seventhWeatherIcon" class="p-WeatherIcon"></div>
+              <div class="p-weekTemp">
+                <p id="js-seventhTempMin" class="-inline"></p>
+                <p class="p-tempDelimiter -inline">|</p>
+                <p id="js-seventhTempMax" class="-inline"></p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="l-footer">
+        <p class="p-footer__title">近くて 遠い国、台湾</p>
+        <p class="p-footer__copy"><small>copyrights ソエジマユカ All right reserved.</small></p>
+      </div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
+      import {
+        getFirestore,
+        collection,
+        addDoc,
+        serverTimestamp,
+        onSnapshot,
+        query,
+        orderBy,
+        deleteDoc,
+        doc,
+      } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
+
+      const firebaseConfig = {
+        apiKey: "",
+        authDomain: "taiwan-2bb07.firebaseapp.com",
+        projectId: "taiwan-2bb07",
+        storageBucket: "taiwan-2bb07.appspot.com",
+        messagingSenderId: "139153299142",
+        appId: "1:139153299142:web:8c7df55ecf89d169d729c7",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+
+      // データベースと接続
+      var db = getFirestore(app);
+
+      //  データ取得条件の指定（今回は時間の新しい順に並び替えて取得）
+      const q = query(collection(db, "taiwan"), orderBy("time", "desc"));
+      // データ取得処理
+      onSnapshot(q, (querySnapshot) => {
+        //データの変更があった時にここの処理が動く
+        console.log(querySnapshot.docs);
+
+        // これは毎回同じ
+        const documents = [];
+        querySnapshot.docs.forEach(function (doc) {
+          const document = {
+            id: doc.id,
+            data: doc.data(),
+          };
+          documents.push(document);
+        });
+
+        // ただのオブジェクトが入った配列
+        console.log(documents);
+        const htmlElements = [];
+        documents.forEach(function (document) {
+          htmlElements.push(`
+            <li id="${document.id}" class="l-qa__wrapper">
+              <div class=l-qa__box>
+                <p class="p-iconQA">Q</p>
+                <p class="p-question">${document.data.q}</p>
+              </div>
+              <div class=l-qa__box>
+                <p class="p-iconQA">A</p>
+                <p class="p-answer">${document.data.a}</p>
+              </div>
+            </li>
+          `);
+        });
+        $("#output").html(htmlElements);
+      });
+    </script>
+  </body>
+</html>

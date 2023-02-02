@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>台湾グルメ | 近くて 遠い国、台湾</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+
+    <link rel="icon" type="img/png" href="../img/favicon.png" />
+    <link rel="stylesheet" href="../css/common.css" />
+
+    <script>
+      (function (d) {
+        var config = {
+            kitId: "srv2rrs",
+            scriptTimeout: 3000,
+            async: true,
+          },
+          h = d.documentElement,
+          t = setTimeout(function () {
+            h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
+          }, config.scriptTimeout),
+          tk = d.createElement("script"),
+          f = false,
+          s = d.getElementsByTagName("script")[0],
+          a;
+        h.className += " wf-loading";
+        tk.src = "https://use.typekit.net/" + config.kitId + ".js";
+        tk.async = true;
+        tk.onload = tk.onreadystatechange = function () {
+          a = this.readyState;
+          if (f || (a && a != "complete" && a != "loaded")) return;
+          f = true;
+          clearTimeout(t);
+          try {
+            Typekit.load(config);
+          } catch (e) {}
+        };
+        s.parentNode.insertBefore(tk, s);
+      })(document);
+    </script>
+    <script src="../js/app.js" defer></script>
+    <script src="../js/swiper.js" defer></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  </head>
+  <header>
+    <nav class="p-header__nav">
+      <h2 class="screen-reader-text">サイト内メニュー</h2>
+      <button type="button" class="js-drawer" aria-controls="globalNav" aria-expanded="false">
+        <span class="p-hamburger__line">
+          <span class="screen-reader-text">メニューを開閉</span>
+        </span>
+      </button>
+      <ul id="globalNav" class="drawer u-upper">
+        <li><a href="../index.html">トップページ</a></li>
+        <li><a href="../index.html#taiwan">台湾とは</a></li>
+        <li><a href="../index.html#area">エリア紹介</a></li>
+        <li><a href="../index.html#access">アクセス</a></li>
+        <li><a href="../information/index.html">基本情報</a></li>
+      </ul>
+    </nav>
+  </header>
+  <body>
+    <section class="l-section -secondary">
+      <div class="d-container -secondary">
+        <h2 class="c-heading -force">台湾グルメ<span class="-caption">Gourmet</span></h2>
+
+        <div class="mapFood-wrap">
+          <div id="mapFood" class="mapFood"></div>
+        </div>
+      </div>
+    </section>
+    <section class="l-section">
+      <!-- swiper -->
+      <div class="swiper-container d-spacer" data-y="min:largeBottom">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide c-img -nth">
+            <img src="../img/gourmet01.jpg" alt="写真" decoding="async" />
+            <p class="swiper_txt">タピオカドリンク</p>
+          </div>
+          <div class="swiper-slide c-img">
+            <img src="../img/gourmet02.jpg" alt="写真" decoding="async" />
+            <p class="swiper_txt">豆花</p>
+          </div>
+          <div class="swiper-slide c-img -nth">
+            <img src="../img/gourmet03.jpg" alt="写真" decoding="async" />
+            <p class="swiper_txt">パイナップルケーキ</p>
+          </div>
+          <div class="swiper-slide c-img">
+            <img src="../img/gourmet04.jpg" alt="写真" decoding="async" />
+            <p class="swiper_txt">魯肉飯</p>
+          </div>
+          <div class="swiper-slide c-img -nth">
+            <img src="../img/gourmet05.jpg" alt="写真" decoding="async" />
+            <p class="swiper_txt">小籠包</p>
+          </div>
+          <div class="swiper-slide c-img">
+            <img src="../img/gourmet06.jpg" alt="写真" decoding="async" />
+            <p class="swiper_txt">牛肉麺</p>
+          </div>
+        </div>
+      </div>
+      <!-- swiper -->
+    </section>
+    <footer>
+      <div class="l-footer">
+        <p class="p-footer__title">近くて 遠い国、台湾</p>
+        <p class="p-footer__copy"><small>copyrights ソエジマユカ All right reserved.</small></p>
+      </div>
+    </footer>
+    <script>
+      window.initMap = () => {
+        let map;
+
+        const area = document.getElementById("mapFood"); // マップを表示させるHTMLの箱
+        // マップの中心位置(例:原宿駅)
+        const center = {
+          lat: 25.033992560695435,
+          lng: 121.56006454545934,
+        };
+
+        const styles = [
+          //地図全体の色味をカスタマイズ
+          //グレースケールにするために、saturation(彩度)を最低値-100に設定
+          {
+            stylers: [
+              {
+                saturation: 0,
+              },
+            ],
+          },
+        ];
+
+        //マップ作成
+        map = new google.maps.Map(area, {
+          center,
+          zoom: 13,
+          styles: styles,
+        });
+
+        //マーカー表示データ
+        const markerData = [
+          {
+            name: "龍門客桟餃子館",
+            type: "gyoza",
+            lat: 25.03969528746401,
+            lng: 121.52305721013329,
+            address: "No. 19號, Lane 61, Linsen S Rd, Zhongzheng District, Taipei City, 台湾 100",
+            url: "https://goo.gl/maps/JBy3pY8rw6V3PUKY6",
+          },
+          {
+            name: "阿薄郎薄皮餃子台式小酒館台北一郎忠孝店",
+            type: "gyoza",
+            lat: 25.041888629349234,
+            lng: 121.55064735510905,
+            address: "106 台湾 Taipei City, Da’an District, Section 4, Zhongxiao E Rd, 177號 2號樓之2",
+            url: "https://goo.gl/maps/Y9C4dzHBqV6iB2Mr6",
+          },
+          {
+            name: "来来水餃店",
+            type: "gyoza",
+            lat: 25.028890082809898,
+            lng: 121.50579974161619,
+            address: "No. 9, Lane 309, Section 2, Zhonghua Rd, Zhongzheng District, Taipei City, 台湾 100",
+            url: "https://goo.gl/maps/aTdcJiHxh85BCBL98",
+          },
+          {
+            name: "巧之味手工水餃 済南店",
+            type: "gyoza",
+            lat: 25.041484290962902,
+            lng: 121.52689578579566,
+            address: "No. 6, Section 2, Jinan Rd, Zhongzheng District, Taipei City, 台湾 100",
+            url: "https://goo.gl/maps/2uFtxQ5vFxmreRGp6",
+          },
+          {
+            name: "鼎泰豊（ディンタイフォン）信義本店",
+            type: "gyoza",
+            lat: 25.033735729090413,
+            lng: 121.53004762442231,
+            address: "No. 194, Section 2, Xinyi Rd, Da’an District, Taipei City, 台湾 106",
+            url: "https://goo.gl/maps/vtb4BxhieyXD5ShL7",
+          },
+          {
+            name: "點水樓",
+            type: "gyoza",
+            lat: 25.04202325208535,
+            lng: 121.54321251012311,
+            address: "106 台湾 Taipei City, Da’an District, Section 3, Zhongxiao E Rd, 300號11F",
+            url: "https://goo.gl/maps/U5bnpyQnYpDkk8aS8",
+          },
+          {
+            name: "金品茶樓",
+            type: "gyoza",
+            lat: 25.054995969532655,
+            lng: 121.52367251278092,
+            address: "No. 16號, Changchun Rd, Zhongshan District, Taipei City, 台湾 104",
+            url: "https://goo.gl/maps/uq7Rof93ZGfb12xg6",
+          },
+          {
+            name: "妙口四神湯 肉まん",
+            type: "gyoza",
+            lat: 25.057043623659073,
+            lng: 121.50976842627357,
+            address: "No. 388號, Minsheng W Rd, Datong District, Taipei City, 台湾 103",
+            url: "https://goo.gl/maps/8Pu73XtcuNZbhqnF6",
+          },
+          {
+            name: "幸福甜品-茶米露",
+            type: "tapioka",
+            lat: 25.0557949297471,
+            lng: 121.5094185572615,
+            address: "103 台湾 Taipei City, Datong District, Lane 72, Section 1, Dihua St, 19號一樓",
+            url: "https://goo.gl/maps/oWzikLitfaA2FjSL8",
+          },
+          {
+            name: "CoCo都可",
+            type: "tapioka",
+            lat: 25.058226838103817,
+            lng: 121.51769028748024,
+            address: "No. 159號, Minsheng W Rd, Datong District, Taipei City, 台湾 103",
+            url: "https://goo.gl/maps/CjeNZiKsRR6wLFLP7",
+          },
+          {
+            name: "天仁茗茶 西門店",
+            type: "tapioka",
+            lat: 25.043044937595102,
+            lng: 121.50590259847462,
+            address: "No. 76號, Xining Rd, Wanhua District, Taipei City, 台湾 108",
+            url: "https://goo.gl/maps/ZXXEh6AXBBC83bc4A",
+          },
+          {
+            name: "度小月担仔面 台北忠孝店",
+            type: "noodles",
+            lat: 25.040961234529345,
+            lng: 121.55253090698486,
+            address: "No. 12號, Alley 8, Lane 216, Section 4, Zhongxiao E Rd, Da’an District, Taipei City, 台湾 106",
+            url: "https://goo.gl/maps/F4XWoZ856nzgVAee7",
+          },
+          {
+            name: "忠誠牛肉面",
+            type: "noodles",
+            lat: 25.107502455842525,
+            lng: 121.52758565541359,
+            address: "No. 80, Dexing E Rd, Shilin District, Taipei City, 台湾 111",
+            url: "https://goo.gl/maps/9jvwz1gPGYJhfkBD6",
+          },
+          {
+            name: "富宏牛肉麵",
+            type: "noodles",
+            lat: 25.047901559381927,
+            lng: 121.5078001707548,
+            address: "108台北市萬華區洛陽街67-69號",
+            url: "https://goo.gl/maps/82AQcPiVFUZgG5VWA",
+          },
+          {
+            name: "鼎泰豐三越店(ディンタイフォン)",
+            type: "noodles",
+            lat: 25.053207299994096,
+            lng: 121.52117716507699,
+            address: "104 台湾 Taipei City, Zhongshan District, Nanjing W Rd, 12號B2",
+            url: "https://goo.gl/maps/AYitRzbSU7hAQYsb7",
+          },
+          {
+            name: "意麺王",
+            type: "noodles",
+            lat: 25.05833181636425,
+            lng: 121.51186721493261,
+            address: "No. 202, Guisui St, Datong District, Taipei City, 台湾 103",
+            url: "https://goo.gl/maps/RPSP3vsxhJ715Tv67",
+          },
+          {
+            name: "好記擔仔麵",
+            type: "noodles",
+            lat: 25.05538588809584,
+            lng: 121.5306459646563,
+            address: "No. 79號, Jilin Rd, Zhongshan District, Taipei City, 台湾 10491",
+            url: "https://goo.gl/maps/a1nyxJ5FBAhnjaK47",
+          },
+          {
+            name: "奉口氷室池上店",
+            type: "dessert",
+            lat: 23.148989498702356,
+            lng: 121.26427618337293,
+            address: "No. 231號, Zhongshan Rd, Chishang Township, Taitung County, 台湾 958",
+            url: "https://goo.gl/maps/zQSvb9t5N8smsHHq5",
+          },
+          {
+            name: "冰讃",
+            type: "dessert",
+            lat: 25.05789912674229,
+            lng: 121.519453049314,
+            address: "No. 2, Shuanglian St, Datong District, Taipei City, 台湾 103",
+            url: "https://goo.gl/maps/kqs65hCDt23FZVUD6",
+          },
+          {
+            name: "昭和浪漫氷室 Showaice",
+            type: "dessert",
+            lat: 25.033166288149015,
+            lng: 121.55113551253079,
+            address: "106 台湾 Taipei City, Da’an District, Wenchang St, 47號1F",
+            url: "https://goo.gl/maps/PTvRpp3FFPnPj2EL8",
+          },
+          {
+            name: "好想吃氷 かき氷 日式蔬食 台大公館店",
+            type: "dessert",
+            lat: 25.01928388184569,
+            lng: 121.53348125855693,
+            address: "No. 80號, Wenzhou St, Da’an District, Taipei City, 台湾 10648",
+            url: "https://goo.gl/maps/6HHBKdyGvWUPLEKo6",
+          },
+          {
+            name: "老四川巴蜀麻辣燙 南京店",
+            type: "food",
+            lat: 25.052458729850326,
+            lng: 121.5301359232753,
+            address: "No. 45, Section 2, Nanjing E Rd, Zhongshan District, Taipei City, 台湾 10491",
+            url: "https://goo.gl/maps/GUovMEd7hMoiJwBH7",
+          },
+          {
+            name: "師園塩酥鶏 （西門店）",
+            type: "food",
+            lat: 25.04271064972852,
+            lng: 121.50691913212319,
+            address: "No. 28號, Chengdu Rd, Wanhua District, Taipei City, 台湾 108",
+            url: "https://goo.gl/maps/SjCY656b8K4Ch4v76",
+          },
+          {
+            name: "劉芋仔蛋黃芋餅",
+            type: "Lee",
+            lat: 25.05631601371031,
+            lng: 121.51637742594444,
+            address: "103 台湾 Taipei City, Datong District, Ningxia Rd, 091攤位",
+            url: "https://goo.gl/maps/ZqoptP7Wba9MVa447",
+          },
+        ];
+
+        //マーカーを格納する配列
+        const marker = [];
+
+        //吹き出しを格納する配列
+        const infoWindow = [];
+
+        // マーカーをクリックしたときのイベント登録
+        const markerEvent = (i) => {
+          marker[i].addListener("click", () => {
+            for (const j in marker) {
+              //マーカーをクリックしたときに他の情報ウィンドウを閉じる
+              infoWindow[j].close(map, marker[j]);
+            }
+
+            //クリックされたマーカーの吹き出しを表示
+            infoWindow[i].open(map, marker[i]);
+          });
+        };
+
+        // マーカー毎の処理
+        for (let i = 0; i < markerData.length; i++) {
+          //マーカー作成
+          // 緯度経度のデータ作成
+          const markerLatLng = new google.maps.LatLng({
+            lat: markerData[i]["lat"],
+            lng: markerData[i]["lng"],
+          });
+
+          //マーカーオプション設定
+          const markerOption = {
+            position: markerLatLng, // マーカーを立てる位置を指定
+            map: map, // マーカーを立てる地図を指定
+            icon: {
+              url: "img/food.png", //デフォルトのマーカー画像
+              scaledSize: new google.maps.Size(30, 30), //サイズ
+            },
+          };
+
+          //gyozaだったときのマーカー画像を設定
+          if (markerData[i]["type"] === "gyoza") {
+            markerOption.icon = "../img/gyoza.png";
+          }
+          //tapiokaだったときのマーカー画像を設定
+          if (markerData[i]["type"] === "tapioka") {
+            markerOption.icon = "../img/tapioka.png";
+          }
+          //noodlesだったときのマーカー画像を設定
+          if (markerData[i]["type"] === "noodles") {
+            markerOption.icon = "../img/noodles.png";
+          }
+          //dessertだったときのマーカー画像を設定
+          if (markerData[i]["type"] === "dessert") {
+            markerOption.icon = "../img/dessert.png";
+          }
+          //food(その他)だったときのマーカー画像を設定
+          if (markerData[i]["type"] === "food") {
+            markerOption.icon = "../img/food.png";
+          }
+          //Leeさんおすすめだったときのマーカー画像を設定
+          if (markerData[i]["type"] === "Lee") {
+            markerOption.icon = "../img/lee.png";
+          }
+          //各データごとにマーカーを作成
+          marker[i] = new google.maps.Marker(markerOption);
+
+          // 各データごとに吹き出しを作成
+          infoWindow[i] = new google.maps.InfoWindow({
+            content: `<div class="custom-info">
+                <div class="custom-info-item name">
+                ${markerData[i]["name"]}
+                </div>
+                <div class="custom-info-item address">
+                ${markerData[i]["address"]}
+                </div>
+                <div class="custom-info-item google-map">
+                <a href="${markerData[i]["url"]}" target="_blank">MAP</a>
+                </div>
+            </div>`, // 吹き出しに表示する内容
+          });
+
+          // 各マーカーにクリックイベントを追加
+          markerEvent(i);
+        }
+      };
+    </script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=&callback=initMap"
+      async
+      defer
+    ></script>
+  </body>
+</html>
